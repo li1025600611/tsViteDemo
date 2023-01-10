@@ -1,0 +1,100 @@
+.layout {
+  background: #f1f2f2;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  color: aqua;
+  background: #fff;
+  box-shadow: 0 1px 2px #ccc;
+  padding-top: 16px;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      cursor: pointer;
+    }
+
+    .inputGroup {
+      display: flex;
+      margin: 0 16px;
+    }
+
+    .member {
+      display: flex;
+      align-items: center;
+      height: 24px;
+      color: #86909c;
+      font-size: 14px;
+      span {
+        margin-left: 8px;
+      }
+    }
+
+    .message {
+      width: 24px;
+      height: 27px;
+      margin: 0 16px;
+    }
+
+    .person {
+      width: 36px;
+      height: 36px;
+
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    :global {
+      // menu下面灰色的border
+      .ant-menu-horizontal {
+        border: none;
+      }
+
+      // 输入框高度
+      .ant-input-group > .ant-input {
+        height: 36px;
+        width: 216px;
+      }
+
+      // 搜索框的放大镜
+      .ant-input-search
+        > .ant-input-group
+        > .ant-input-group-addon:last-child
+        .ant-input-search-button {
+        height: 36px;
+        width: 44px;
+        background: #f2f3f5;
+      }
+
+      .ant-btn-primary {
+        height: 36px;
+
+        &:nth-child(2) {
+          width: 19px;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  height: calc(100vh - 60px);
+
+  .childrenContent {
+    height: 100%;
+    min-width: 500px;
+    max-width: 960px;
+    margin: 24px auto;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: -1 -1px 2px #ccc;
+    // border: 1px solid red;
+  }
+}
