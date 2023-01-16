@@ -2,11 +2,12 @@
  * Author  Vincy.Li
  * Date  2023-01-09 10:16:14
  * LastEditors  Vincy.Li
- * LastEditTime  2023-01-16 14:39:31
+ * LastEditTime  2023-01-16 17:36:37
  * Description
  */
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -18,6 +19,12 @@ export default defineConfig(({ command, mode }) => {
         generateScopedName:
           mode === "development" ? "[path][name]__[local]" : "[local]",
       },
+    },
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
+      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"], // 默认值
     },
     server: {
       host: "0.0.0.0",
