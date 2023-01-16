@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-01-09 10:30:51
  * LastEditors  Vincy.Li
- * LastEditTime  2023-01-09 16:22:05
+ * LastEditTime  2023-01-16 13:44:52
  * Description Suspense与lazy配合懒加载；加载前展示Suspense里面的内容（loading...）
  */
 import { lazy, createElement, Suspense, Component, ComponentType } from "react";
