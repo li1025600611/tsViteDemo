@@ -2,8 +2,8 @@
  * Author  Vincy.Li
  * Date  2023-01-09 14:36:40
  * LastEditors  Vincy.Li
- * LastEditTime  2023-01-16 19:40:15
- * Description
+ * LastEditTime  2023-01-17 10:14:33
+ * Description Suspense与lazy配合懒加载；加载前展示Suspense里面的内容（loading...）
  */
 import React, {
   lazy,
@@ -14,7 +14,7 @@ import React, {
 } from "react";
 import BasicLayout from "../src/components/Layout/BasicLayout";
 import NotFound from "../src/pages/NotFound/NotFound";
-import routerConfigType from "../global.d";
+import routerConfigType from "../src/types/global";
 function routerConfig() {
   // 这是正常懒加载写法 在引入时需要用<Suspense><Home/></Suspense>
   // const Home = lazy(() => import("../pages/Home/Home"));

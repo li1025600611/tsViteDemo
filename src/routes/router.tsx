@@ -2,12 +2,12 @@
  * Author  Vincy.Li
  * Date  2023-01-09 10:30:51
  * LastEditors  Vincy.Li
- * LastEditTime  2023-01-16 19:41:23
- * Description Suspense与lazy配合懒加载；加载前展示Suspense里面的内容（loading...）
+ * LastEditTime  2023-01-17 10:14:07
+ * Description
  */
 import { Routes, Route } from "react-router-dom";
 import routerConfig from "../../config/routerConfig";
-import routerConfigType from "../../global.d";
+import routerConfigType from "../types/global";
 
 export default function routes() {
   const list = routerConfig();
