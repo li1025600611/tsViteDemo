@@ -7,7 +7,7 @@
  */
 import { Routes, Route } from "react-router-dom";
 import routerConfig from "../../config/routerConfig";
-import routerConfigType from "../types/global";
+// import routerConfigType from "../types/global";
 
 export default function routes() {
   const list = routerConfig();

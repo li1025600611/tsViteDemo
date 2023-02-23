@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-01-09 14:36:40
  * LastEditors  Vincy.Li
- * LastEditTime  2023-01-17 10:14:33
+ * LastEditTime  2023-02-22 11:02:24
  * Description Suspense与lazy配合懒加载；加载前展示Suspense里面的内容（loading...）
  */
 import React, {
@@ -30,6 +30,10 @@ function routerConfig() {
   );
 
   const routerArr: routerConfigType[] = [
+    {
+      path: "login",
+      element: lazyElement(() => import("../src/components/Login")),
+    },
     {
       path: "/",
       element: <BasicLayout />,
@@ -73,10 +77,6 @@ function routerConfig() {
           element: <NotFound />,
         },
       ],
-    },
-    {
-      path: "login",
-      element: lazyElement(() => import("../src/pages/Login/Login")),
     },
   ];
   return routerArr;
