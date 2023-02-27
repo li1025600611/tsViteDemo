@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-02-20 17:03:24
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-27 14:21:33
+ * LastEditTime  2023-02-27 14:43:24
  * Description 登陆页面
  */
 import styles from "./index.module.less";
@@ -101,7 +101,7 @@ export default function Login() {
             name="password"
             rules={[{ required: true, message: "*密码不能为空" }]}
           >
-            <Input.Password placeholder="请输入密码" />
+            <Input placeholder="请输入密码" />
           </Form.Item>
           <div className={styles.verifyWrap}>
             <Form.Item
