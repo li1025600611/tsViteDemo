@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-01-09 14:36:40
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-22 11:02:24
+ * LastEditTime  2023-02-27 14:01:25
  * Description Suspense与lazy配合懒加载；加载前展示Suspense里面的内容（loading...）
  */
 import React, {
@@ -12,9 +12,11 @@ import React, {
   ComponentType,
   ReactNode,
 } from "react";
+import { RecoilRoot } from "recoil";
 import BasicLayout from "../src/components/Layout/BasicLayout";
 import NotFound from "../src/pages/NotFound/NotFound";
-import routerConfigType from "../src/types/global";
+import { Navigate } from "react-router-dom";
+
 function routerConfig() {
   // 这是正常懒加载写法 在引入时需要用<Suspense><Home/></Suspense>
   // const Home = lazy(() => import("../pages/Home/Home"));
@@ -31,16 +33,24 @@ function routerConfig() {
 
   const routerArr: routerConfigType[] = [
     {
+      path: "",
+      element: <Navigate to="login" />, // 默认进入登录页
+    },
+    {
       path: "login",
       element: lazyElement(() => import("../src/components/Login")),
     },
     {
       path: "/",
-      element: <BasicLayout />,
+      element: (
+        <RecoilRoot>
+          <BasicLayout />
+        </RecoilRoot>
+      ),
       children: [
         {
           path: "",
-          element: lazyElement(() => import("../src/pages/Home/Home")),
+          element: <Navigate to="home" replace={true} />,
         },
         {
           path: "home",

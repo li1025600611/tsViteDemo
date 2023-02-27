@@ -2,10 +2,11 @@
  * Author  Vincy.Li
  * Date  2023-02-20 17:03:24
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-24 11:18:45
+ * LastEditTime  2023-02-27 14:21:33
  * Description 登陆页面
  */
 import styles from "./index.module.less";
+import { useNavigate } from "react-router-dom";
 import { Button, Form, Input, Alert } from "antd";
 import { useEffect, useState, type SyntheticEvent } from "react";
 import JSEncrypt from "jsencrypt/lib/index.js";
@@ -13,6 +14,7 @@ const encryptor = new JSEncrypt();
 
 export default function Login() {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
   const [verifyCode, setVerifyCode] = useState({ uuid: "", captchaBase64: "" }); // 验证码图片
 
   useEffect(() => {
@@ -29,9 +31,8 @@ export default function Login() {
 
   const getPublicKey = async () => {
     const res = await api.User.getPublicKey();
-    console.log(res);
     if (res && res?.status === "SUCCESS") {
-      localStorage.setItem("pb_ky", res.data);
+      localStorage.setItem("do_pb_ky", res.data);
     }
   };
 
@@ -49,10 +50,11 @@ export default function Login() {
     const { getFieldsValue, validateFields } = form as any;
     validateFields()
       .then(async (values: any) => {
+        console.log(values);
         const userName = values?.userName;
         const password = values?.password;
 
-        const publicKey = localStorage.getItem("pb_ky") || "";
+        const publicKey = localStorage.getItem("do_pb_ky") || "";
         encryptor.setPublicKey(publicKey);
         const pass = encryptor.encrypt(password);
         const params = {
@@ -64,10 +66,11 @@ export default function Login() {
 
         const res = await api.User.login(params);
         if (res && res.status === "SUCCESS") {
-          localStorage.setItem("do_wt_Bearer", res.data);
+          localStorage.setItem("do_jwt_Bearer", res.data);
           const encryptUserName = window.btoa(encodeURIComponent(userName));
           localStorage.setItem("do_user_name", encryptUserName);
           // 跳转到首页
+          navigate("/home");
           // window.location.herf('')
         } else {
           // 登陆失败 刷新验证码
@@ -86,8 +89,7 @@ export default function Login() {
         <Form
           className={styles.form}
           form={form}
-          onFinish={handleSubmit}
-          validateTrigger={["onFinish", "onChange"]}
+          validateTrigger={["onChange"]}
         >
           <Form.Item
             name="userName"
@@ -99,7 +101,7 @@ export default function Login() {
             name="password"
             rules={[{ required: true, message: "*密码不能为空" }]}
           >
-            <Input placeholder="请输入密码" />
+            <Input.Password placeholder="请输入密码" />
           </Form.Item>
           <div className={styles.verifyWrap}>
             <Form.Item
@@ -115,7 +117,11 @@ export default function Login() {
               onClick={getVerify}
             />
           </div>
-          <Button type="primary" className={styles.loginBtn} htmlType="submit">
+          <Button
+            type="primary"
+            className={styles.loginBtn}
+            onClick={handleSubmit}
+          >
             登录
           </Button>
         </Form>

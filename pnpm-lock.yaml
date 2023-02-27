@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@ant-design/icons': ^4.8.0
   '@rollup/plugin-inject': ^5.0.3
+  '@types/base-64': ^1.0.0
   '@types/crypto-js': ^4.1.1
   '@types/lodash': ^4.14.191
   '@types/node': ^18.11.18
@@ -14,6 +15,7 @@ specifiers:
   '@vitejs/plugin-react': ^3.1.0
   antd: ^5.1.2
   axios: ^1.2.2
+  base-64: ^1.0.0
   crypto-js: ^4.1.1
   eslint: ^8.34.0
   jquery: ^3.6.3
@@ -31,12 +33,14 @@ specifiers:
 dependencies:
   '@ant-design/icons': registry.npmmirror.com/@ant-design/icons/4.8.0_biqbaboplfbrettd7655fr4n2y
   '@rollup/plugin-inject': registry.npmmirror.com/@rollup/plugin-inject/5.0.3
+  '@types/base-64': registry.npmmirror.com/@types/base-64/1.0.0
   '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.191
   '@types/node': registry.npmmirror.com/@types/node/18.11.18
   '@types/qs': registry.npmmirror.com/@types/qs/6.9.7
   '@vitejs/plugin-react': registry.npmmirror.com/@vitejs/plugin-react/3.1.0_vite@4.1.4
   antd: registry.npmmirror.com/antd/5.1.2_biqbaboplfbrettd7655fr4n2y
   axios: registry.npmmirror.com/axios/1.2.2
+  base-64: registry.npmmirror.com/base-64/1.0.0
   crypto-js: registry.npmmirror.com/crypto-js/4.1.1
   jquery: registry.npmmirror.com/jquery/3.6.3
   jsencrypt: registry.npmmirror.com/jsencrypt/3.3.1
@@ -925,6 +929,12 @@ packages:
     version: 1.0.3
     dev: true
 
+  registry.npmmirror.com/@types/base-64/1.0.0:
+    resolution: {integrity: sha512-AvCJx/HrfYHmOQRFdVvgKMplXfzTUizmh0tz9GFTpDePWgCY4uoKll84zKlaRoeiYiCr7c9ZnqSTzkl0BUVD6g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/base-64/-/base-64-1.0.0.tgz}
+    name: '@types/base-64'
+    version: 1.0.0
+    dev: false
+
   registry.npmmirror.com/@types/crypto-js/4.1.1:
     resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/crypto-js/-/crypto-js-4.1.1.tgz}
     name: '@types/crypto-js'
@@ -1344,6 +1354,12 @@ packages:
     name: balanced-match
     version: 1.0.2
     dev: true
+
+  registry.npmmirror.com/base-64/1.0.0:
+    resolution: {integrity: sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/base-64/-/base-64-1.0.0.tgz}
+    name: base-64
+    version: 1.0.0
+    dev: false
 
   registry.npmmirror.com/brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/brace-expansion/-/brace-expansion-1.1.11.tgz}
