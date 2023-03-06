@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-02-22 13:46:22
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-27 11:27:06
+ * LastEditTime  2023-03-03 13:46:32
  * Description
  */
 import { message } from "antd";
@@ -30,6 +30,7 @@ const getAxiosConfig = () => {
   const userName = localStorage.getItem("do_user_name");
   const userId = localStorage.getItem("do_user_id");
   const userRealName = localStorage.getItem("do_user_real_name");
+
   const prismHeaders = getSignature();
   return {
     headers: {

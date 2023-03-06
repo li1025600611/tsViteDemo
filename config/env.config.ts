@@ -2,14 +2,10 @@
  * Author  Vincy.Li
  * Date  2023-02-22 13:28:31
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-22 13:41:48
+ * LastEditTime  2023-03-03 14:24:45
  * Description
  */
-export default function getConfig() {
-  const mode = import.meta.env.MODE;
-  if (mode === "development") {
-    return {
-      pattern: "dev", // or test
-    };
-  }
-}
+export default {
+  pattern: "dev", // or test
+  menuConfig: "local", // menuConfig
+};

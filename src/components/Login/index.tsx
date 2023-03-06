@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-02-20 17:03:24
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-27 14:43:24
+ * LastEditTime  2023-03-03 14:44:43
  * Description 登陆页面
  */
 import styles from "./index.module.less";
@@ -50,7 +50,6 @@ export default function Login() {
     const { getFieldsValue, validateFields } = form as any;
     validateFields()
       .then(async (values: any) => {
-        console.log(values);
         const userName = values?.userName;
         const password = values?.password;
 
@@ -68,7 +67,7 @@ export default function Login() {
         if (res && res.status === "SUCCESS") {
           localStorage.setItem("do_jwt_Bearer", res.data);
           const encryptUserName = window.btoa(encodeURIComponent(userName));
-          localStorage.setItem("do_user_name", encryptUserName);
+          localStorage.setItem("do_user_real_name", encryptUserName);
           // 跳转到首页
           navigate("/home");
           // window.location.herf('')

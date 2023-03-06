@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-01-09 10:16:14
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-23 20:42:54
+ * LastEditTime  2023-03-03 11:03:33
  * Description
  */
 import { defineConfig, loadEnv } from "vite";
@@ -13,6 +13,10 @@ import * as path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  /**
+   * 开发环境：command==='serve' mode==='development'
+   * 生产环境：command==='build' mode==='production'
+   */
   return {
     plugins: [
       react(),
@@ -20,12 +24,14 @@ export default defineConfig(({ command, mode }) => {
         // 将文件注入全局，可以直接使用
         api: path.resolve(__dirname, "src/services/index.ts"),
         _: "lodash",
+        env: path.resolve(__dirname, "config/env.config"),
       }),
     ],
     define: {
       // 定义全局变量，不需要引入
       TEST_DEFINE: JSON.stringify(env.VITE_TEST),
       VITE_APP_TITLE: JSON.stringify("test title"),
+      // env: path.resolve(__dirname, "config/env.config"),
     },
     css: {
       modules: {
