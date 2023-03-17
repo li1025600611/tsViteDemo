@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-01-09 10:48:01
  * LastEditors  Vincy.Li
- * LastEditTime  2023-03-13 19:49:37
+ * LastEditTime  2023-03-17 19:47:17
  * Description 增加安全校验  登陆过了正常跳转 未登陆返回登陆页面
  *             已经登陆的话 根据开发模式或线上模式 返回不同的路由 Route zui
  */
@@ -18,6 +18,7 @@ import Logo from "@/assets/logo.svg";
 
 function BasicLayout() {
   const [currentPage, setCurrentPage] = useState(["home"]);
+  console.log("test1");
   const items = [
     {
       key: "home",
