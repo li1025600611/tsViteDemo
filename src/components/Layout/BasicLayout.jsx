@@ -2,12 +2,13 @@
  * Author  Vincy.Li
  * Date  2023-01-09 10:48:01
  * LastEditors  Vincy.Li
- * LastEditTime  2023-03-03 15:30:03
+ * LastEditTime  2023-03-13 19:49:37
  * Description 增加安全校验  登陆过了正常跳转 未登陆返回登陆页面
+ *             已经登陆的话 根据开发模式或线上模式 返回不同的路由 Route zui
  */
 import { useState, useEffect } from "react";
 import { Menu, Input, Dropdown, Layout, Drawer } from "antd";
-import type { MenuProps } from "antd";
+import RouteLayout from "./RouteLayout.jsx";
 import { CaretDownOutlined } from "@ant-design/icons";
 import styles from "./BasicLayout.module.less";
 import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
@@ -17,7 +18,7 @@ import Logo from "@/assets/logo.svg";
 
 function BasicLayout() {
   const [currentPage, setCurrentPage] = useState(["home"]);
-  const items: MenuProps["items"] = [
+  const items = [
     {
       key: "home",
       label: "首页",
@@ -82,7 +83,7 @@ function BasicLayout() {
     }
   };
 
-  const onMenuClick: MenuProps["onClick"] = ({ key, keyPath }: any) => {
+  const onMenuClick = ({ key, keyPath }) => {
     navigate(key);
     setCurrentPage(keyPath);
   };
@@ -106,6 +107,7 @@ function BasicLayout() {
             </Sider>
 
             <Content className={styles.content}>
+              <RouteLayout />
               <Outlet />
             </Content>
           </Layout>

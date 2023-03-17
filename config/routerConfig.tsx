@@ -2,7 +2,7 @@
  * Author  Vincy.Li
  * Date  2023-01-09 14:36:40
  * LastEditors  Vincy.Li
- * LastEditTime  2023-02-27 14:01:25
+ * LastEditTime  2023-03-13 19:53:20
  * Description Suspense与lazy配合懒加载；加载前展示Suspense里面的内容（loading...）
  */
 import React, {
@@ -13,7 +13,7 @@ import React, {
   ReactNode,
 } from "react";
 import { RecoilRoot } from "recoil";
-import BasicLayout from "../src/components/Layout/BasicLayout";
+import BasicLayout from "../src/components/Layout/BasicLayout.jsx";
 import NotFound from "../src/pages/NotFound/NotFound";
 import { Navigate } from "react-router-dom";
 
